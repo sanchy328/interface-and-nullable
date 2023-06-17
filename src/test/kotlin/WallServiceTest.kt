@@ -12,7 +12,7 @@ class WallServiceTest {
 
     @Test
     fun addTest() {
-        val (id) = WallService.add(Post(0))
+        val (id) = WallService.add(Post(0, original = null))
 
         val result = id
 
@@ -21,11 +21,11 @@ class WallServiceTest {
 
     @Test
     fun updateTestTrue() {
-        WallService.add(Post(0))
-        WallService.add(Post(1))
-        WallService.add(Post(1))
+        WallService.add(Post(0, original = null))
+        WallService.add(Post(1, original = null))
+        WallService.add(Post(1, original = null))
 
-        val update = Post(1)
+        val update = Post(1, original = null)
 
         val result = WallService.update(update)
 
@@ -34,11 +34,11 @@ class WallServiceTest {
 
     @Test
     fun updateTestFalse() {
-        WallService.add(Post(0))
-        WallService.add(Post(1))
-        WallService.add(Post(1))
+        WallService.add(Post(0, original = null))
+        WallService.add(Post(1, original = null))
+        WallService.add(Post(1, original = null))
 
-        val update = Post(4)
+        val update = Post(4, original = null)
 
         val result = WallService.update(update)
 
